@@ -2,7 +2,7 @@ import { Component, inject, Input, OnInit, signal, WritableSignal } from '@angul
 import { IonHeader, IonToolbar, IonTitle, IonContent , IonList , IonItem , IonAvatar ,IonSkeletonText, IonAlert,IonBadge  ,IonButton, IonLabel ,IonInfiniteScroll, IonInfiniteScrollContent, IonBackButton, IonButtons,IonCard , IonCardTitle , IonCardSubtitle ,IonText , IonCardHeader , IonCardContent,IonIcon  } from '@ionic/angular/standalone';
 import { MovieService } from '../services/movie.service';
 import { MovieResult } from '../services/interface';
-import {cashOutline , calendarOutline , peopleCircleOutline , earthOutline}  from 'ionicons/icons';
+import {cashOutline , calendarOutline , peopleCircleOutline , earthOutline, alertCircleOutline}  from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -31,7 +31,7 @@ this.movie.set(movie);
 }
 
   constructor() { 
-    addIcons({cashOutline , calendarOutline , peopleCircleOutline , earthOutline})
+    addIcons({cashOutline , calendarOutline , peopleCircleOutline , earthOutline , alertCircleOutline})
   }
 
   ngOnInit() {}
