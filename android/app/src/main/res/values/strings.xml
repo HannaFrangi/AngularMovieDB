@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">DaMovieDB</string>
+    <string name="title_activity_main">DaMovieDB</string>
+    <string name="package_name">modern.app</string>
+    <string name="custom_url_scheme">modern.app</string>
+</resources>
