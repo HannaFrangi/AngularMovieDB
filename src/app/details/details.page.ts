@@ -20,6 +20,8 @@ export class DetailsPage implements OnInit {
 private movieService = inject(MovieService);
 public imageBaseUrl = 'https://image.tmdb.org/t/p';
 public movie: WritableSignal<MovieResult | null>  = signal(null);
+cool: any;
+background: any;
 
 
 @Input()

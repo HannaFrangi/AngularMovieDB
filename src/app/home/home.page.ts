@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, InfiniteScrollCustomEvent , IonList , IonItem , IonAvatar ,IonSkeletonText, IonAlert,IonBadge , IonLabel ,IonInfiniteScroll, IonInfiniteScrollContent , IonIcon } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, InfiniteScrollCustomEvent ,IonRefresher, IonRefresherContent, IonList , IonItem , IonAvatar ,IonSkeletonText, IonAlert,IonBadge , IonLabel ,IonInfiniteScroll, IonInfiniteScrollContent , IonIcon } from '@ionic/angular/standalone';
 import { MovieService } from '../services/movie.service';
-import { catchError, finalize, from } from 'rxjs';
+import { catchError, delay, finalize, from } from 'rxjs';
 import { MovieResult } from '../services/interface';
 import { DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent , IonList, IonItem , IonAvatar ,IonSkeletonText ,IonAlert , IonLabel, IonBadge, DatePipe , RouterModule , IonInfiniteScroll , IonInfiniteScrollContent, IonIcon]
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent , IonList, IonItem , IonAvatar , IonRefresher, IonRefresherContent, IonSkeletonText ,IonAlert , IonLabel, IonBadge, DatePipe , RouterModule , IonInfiniteScroll , IonInfiniteScrollContent, IonIcon]
 })
 export class HomePage {
   public movieService = inject(MovieService);
@@ -23,6 +23,16 @@ export class HomePage {
   public dummyArray = new Array(15);
   constructor() {
     this.loadMovies();
+  }
+  doRefresh(event: { target: { complete: () => void; }; }) {
+    console.log('Begin async operation');
+    this.isloading = true;
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.loadMovies();
+      this.isloading = false;
+      event.target.complete();
+    }, 1000);
   }
 
 loadMovies(event?: InfiniteScrollCustomEvent){

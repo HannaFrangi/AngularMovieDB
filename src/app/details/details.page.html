@@ -1,6 +1,6 @@
 
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="deex">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
@@ -8,9 +8,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="deex">
 @if(movie(); as movie){
-<ion-card>
+<ion-card >
   <div [style.height.px]="300" 
   [style.background-image]="'url(' + imageBaseUrl + '/w400'  + movie?.poster_path + ')'"> </div>
 <ion-card-header>
