@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, delay } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ApiResult, MovieResult } from './interface';
+import { ApiResult, MovieResult, search } from './interface';
+import { returnUpForwardOutline } from 'ionicons/icons';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = environment.apikey;
